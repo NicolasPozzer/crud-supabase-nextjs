@@ -9,7 +9,7 @@ type Task = {
     task: string;
     user_id: string;
     created_at: string;
-}
+};
 
 // Definir la interfaz para el estado global
 interface TaskState {
@@ -17,16 +17,15 @@ interface TaskState {
     fetchTasks: () => Promise<void>;
     addTask: (task: string) => Promise<void>;
     deleteTask: (id: number) => Promise<void>;
+    editTask: (id: number, newTask: string) => Promise<void>;
 }
 
 // Crear el store de Zustand
-export const useStore = create<TaskState>((set) => ({
+export const useTaskStore = create<TaskState>((set) => ({
     tasks: [],
 
     fetchTasks: async () => {
-        const { data, error } = await supabase
-            .from('todos')
-            .select('*');
+        const { data, error } = await supabase.from('todos').select('*');
 
         if (error) {
             console.error('Error fetching tasks:', error);
@@ -37,7 +36,6 @@ export const useStore = create<TaskState>((set) => ({
     },
 
     addTask: async (task: string) => {
-        // Obtener el usuario autenticado
         const { data: userData, error: userError } = await supabase.auth.getUser();
 
         if (userError || !userData.user) {
@@ -45,7 +43,6 @@ export const useStore = create<TaskState>((set) => ({
             return;
         }
 
-        // Insertar la tarea con el user_id del usuario autenticado
         const { data, error } = await supabase
             .from('todos')
             .insert([{ task, user_id: userData.user.id }]);
@@ -59,10 +56,7 @@ export const useStore = create<TaskState>((set) => ({
     },
 
     deleteTask: async (id: number) => {
-        const { error } = await supabase
-            .from('todos')
-            .delete()
-            .eq('id', id);
+        const { error } = await supabase.from('todos').delete().eq('id', id);
 
         if (error) {
             console.error('Error deleting task:', error);
@@ -71,6 +65,19 @@ export const useStore = create<TaskState>((set) => ({
 
         set((state) => ({
             tasks: state.tasks.filter((task) => task.id !== id),
+        }));
+    },
+
+    editTask: async (id: number, newTask: string) => {
+        const { error } = await supabase.from('todos').update({ task: newTask }).eq('id', id);
+
+        if (error) {
+            console.error('Error editing task:', error);
+            return;
+        }
+
+        set((state) => ({
+            tasks: state.tasks.map((task) => (task.id === id ? { ...task, task: newTask } : task)),
         }));
     },
 }));

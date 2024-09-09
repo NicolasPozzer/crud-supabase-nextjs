@@ -18,16 +18,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;Z:/YoProgramo/Aprendiendo_front_react_TS_nextjs_tailwind/react-projects/crud-supabase-nextjs&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;Z:\\YoProgramo\\Aprendiendo_front_react_TS_nextjs_tailwind\\react-projects\\crud-supabase-nextjs\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "Z:/YoProgramo/Aprendiendo_front_react_TS_nextjs_tailwind/react-projects/zustand-dashboard-login",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "Z:\\YoProgramo\\Aprendiendo_front_react_TS_nextjs_tailwind\\react-projects\\crud-supabase-nextjs\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\YoProgramo\Aprendiendo_front_react_TS_nextjs_tailwind\react-projects\crud-supabase-nextjs\lib\store" />
@@ -50,7 +50,7 @@
       <updated>1725629987355</updated>
       <workItem from="1725629988495" duration="5661000" />
       <workItem from="1725732018950" duration="1198000" />
-      <workItem from="1725849724833" duration="7961000" />
+      <workItem from="1725849724833" duration="12002000" />
     </task>
     <servers />
   </component>
